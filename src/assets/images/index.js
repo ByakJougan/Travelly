@@ -17,6 +17,20 @@ import HotelCard from './HotelCard.png'
 import TransportCard from './TransportCard.png'
 import EventsCard from './EventsCard.png'
 import SwapButton from './SwapButton.png'
+import NumOfPeople from './NumOfPeople.png'
+import NumOfKids from './NumOfKids.png'
+import NumOfAnimals from './NumOfAnimals.png'
+import NumOfLuggages from './NumOfLuggages.png'
+import Line from './Line.png'
+import NumOfAnimalsAfterText from './NumOfAnimalsAfterText.png'
+import NumOfKidsAfterText from './NumOfKidsAfterText.png'
+import NumOfLuggagesAfterText from './NumOfLuggagesAfterText.png'
+import NumOfPeopleAfterText from './NumOfPeopleAfterText.png'
+import LineAfterText from './LineAfterText.png'
+import Plane from './Plane.png'
+import Train from './Train.png'
+import Bus from './Bus.png'
+import Ship from './Ship.png'
 
 export {
     BackgroundSS,
@@ -37,5 +51,19 @@ export {
     HotelCard,
     TransportCard,
     EventsCard,
-    SwapButton
+    SwapButton,
+    NumOfPeople,
+    NumOfKids,
+    NumOfAnimals,
+    NumOfLuggages,
+    Line,
+    NumOfAnimalsAfterText,
+    NumOfKidsAfterText,
+    NumOfLuggagesAfterText,
+    NumOfPeopleAfterText,
+    LineAfterText,
+    Plane,
+    Train,
+    Bus,
+    Ship
 }
