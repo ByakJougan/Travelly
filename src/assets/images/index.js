@@ -31,6 +31,23 @@ import Plane from './Plane.png'
 import Train from './Train.png'
 import Bus from './Bus.png'
 import Ship from './Ship.png'
+import BackButton from './BackButton.png'
+import Divider from './Divider.png'
+import FromToPath from './FromToPath.png'
+import TicketCardForm from './TicketCardForm.png'
+import FilterButton from './FilterButton.png'
+import TicketLogo from './TicketLogo.png'   
+import FinalTicketForm from './FinalTicketForm.png'
+import BarCode from './BarCode.png'
+import facebook from './facebook.png'
+import google from './google.png'
+import apple from './apple.png'
+import UserIcon     from './UserIcon.png'
+import WalletIcon   from './WalletIcon.png'
+import HeartIcon     from './HeartIcon.png'
+import HistoryIcon  from './HistoryIcon.png'
+import SettingsIcon from './SettingsIcon.png'
+import CameraIcon from './CameraIcon.png'
 
 export {
     BackgroundSS,
@@ -65,5 +82,22 @@ export {
     Plane,
     Train,
     Bus,
-    Ship
+    Ship,
+    BackButton,
+    Divider,
+    FromToPath,
+    TicketCardForm,
+    FilterButton,
+    TicketLogo,
+    FinalTicketForm,
+    BarCode,
+    facebook,
+    google,
+    apple,
+    UserIcon,
+    WalletIcon,
+    HeartIcon,
+    HistoryIcon,
+    SettingsIcon,
+    CameraIcon
 }

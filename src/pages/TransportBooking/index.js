@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, ImageBackground, TouchableOpacity, Image, StyleSheet, Alert, TextInput, ScrollView } from 'react-native'
 import DropDownPicker from 'react-native-dropdown-picker';
 import { HomeBackground, SwapButton, NumOfAnimals, NumOfLuggages, NumOfKids, NumOfPeople, Line, NumOfAnimalsAfterText, 
-  NumOfKidsAfterText, NumOfLuggagesAfterText, NumOfPeopleAfterText, Plane, Ship, Train, Bus } from '../../assets/images';
+  NumOfKidsAfterText, NumOfLuggagesAfterText, NumOfPeopleAfterText, Plane, Ship, Train, Bus, BackButton } from '../../assets/images';
 import DatePicker from 'react-native-datepicker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -11,27 +11,27 @@ const TransportBooking = ({navigation}) => {
   const [openFrom, setOpenFrom] = useState(false);
   const [valueFrom, setValueFrom] = useState(null);
   const [itemsFrom, setItemsFrom] = useState([
-    { label: 'New York (NYC)', value: 'nyc' },
-    { label: 'Paris (PAR)', value: 'par' },
-    { label: 'Jakarta (JKT)', value: 'jkt' },
-    { label: 'Tokyo (TKY)', value: 'tky' },
-    { label: 'London (LDN)', value: 'ldn' },
-    { label: 'Los Angeles (LAX)', value: 'lax' },
-    { label: 'San Francisco (SFO)', value: 'sfo' },
-    { label: 'Las Vegas (LAS)', value: 'las' }
+    { label: 'New York', value: 'New York' },
+    { label: 'Paris', value: 'Paris' },
+    { label: 'Jakarta', value: 'Jakarta' },
+    { label: 'Tokyo', value: 'Tokyo' },
+    { label: 'London', value: 'London' },
+    { label: 'Los Angeles', value: 'Los Angeles' },
+    { label: 'San Francisco', value: 'San Francisco' },
+    { label: 'Las Vegas', value: 'Las Vegas' }
   ]);
 
   const [openTo, setOpenTo] = useState(false);
   const [valueTo, setValueTo] = useState(null);
   const [itemsTo, setItemsTo] = useState([
-    { label: 'New York (NYC)', value: 'nyc' },
-    { label: 'Paris (PAR)', value: 'par' },
-    { label: 'Jakarta (JKT)', value: 'jkt' },
-    { label: 'Tokyo (TKY)', value: 'tky' },
-    { label: 'London (LDN)', value: 'ldn' },
-    { label: 'Los Angeles (LAX)', value: 'lax' },
-    { label: 'San Francisco (SFO)', value: 'sfo' },
-    { label: 'Las Vegas (LAS)', value: 'las' }
+    { label: 'New York', value: 'New York' },
+    { label: 'Paris', value: 'Paris' },
+    { label: 'Jakarta', value: 'Jakarta' },
+    { label: 'Tokyo', value: 'Tokyo' },
+    { label: 'London', value: 'London' },
+    { label: 'Los Angeles', value: 'Los Angeles' },
+    { label: 'San Francisco', value: 'San Francisco' },
+    { label: 'Las Vegas', value: 'Las Vegas' }
   ]);
 
   const handleSwap = () => {
@@ -86,11 +86,25 @@ const TransportBooking = ({navigation}) => {
     { label: 'Bus', value: 'bus', image: Bus },
   ];
 
+  const handleDropDownFromChange = (value) => {
+    setValueFrom(value);
+  };
+  
+  const handleDropDownToChange = (value) => {
+    setValueTo(value);
+  };
+
+
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground source={HomeBackground} style={{ flex: 1 }}>
-        <View style={{ marginTop: 40, alignItems: 'center' }}>
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Transport Booking</Text>
+        <View style={{ marginTop: 40}}>
+          <TouchableOpacity style={styles.backButton} onPress={() => {navigation.navigate('Booking')}}>
+            <Image source={BackButton} />
+          </TouchableOpacity>
+          <View style={{ alignItems: 'center', marginTop: -35 }}>
+            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Transport Booking</Text>
+          </View>
         </View>
         <View style={{ marginTop: 20, alignItems: 'center', flex: 1 }}>
           <TouchableOpacity onPress={handleSwap} style={styles.swapButton}>
@@ -195,6 +209,23 @@ const TransportBooking = ({navigation}) => {
               </View>
             </ScrollView>
           </View>
+          <View>
+  <Text style={styles.classTitle}>Class</Text>
+  <View style={styles.classOptionsContainer}>
+    <TouchableOpacity
+      style={[styles.classOption, selectedClass === 'economy' && styles.selectedClassOption]}
+      onPress={() => setSelectedClass('economy')}
+    >
+      <Text style={[styles.classOptionText, selectedClass === 'economy' && styles.selectedClassText]}>Economy</Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      style={[styles.classOption, selectedClass === 'business' && styles.selectedClassOption]}
+      onPress={() => setSelectedClass('business')}
+    >
+      <Text style={[styles.classOptionText, selectedClass === 'business' && styles.selectedClassText]}>Business</Text>
+    </TouchableOpacity>
+  </View>
+</View>
           <View styles={styles.transportContainer}>
             <Text style={styles.transportTitle}>Transportation</Text>
             <View style={styles.transportOptionsContainer}>
@@ -212,7 +243,27 @@ const TransportBooking = ({navigation}) => {
               </TouchableOpacity>
             </View>
           </View>
-          <TouchableOpacity style={styles.continueButton} onPress={() => {navigation.navigate('TransportFlights')}} >
+          <TouchableOpacity
+            style={styles.continueButton}
+            onPress={() => {
+              const numofpeople = inputPeople; // Replace with the actual value of numofpeople
+              const numofkids = inputKids; // Replace with the actual value of numofkids
+              const from = String(valueFrom).trim();
+              const to = String(valueTo).trim();
+
+              if (from && to) {
+                console.log(`Navigating with From: ${from}, To: ${to}, numofpeople: ${numofpeople}, numofkids: ${numofkids}`);
+                navigation.navigate('TransportFlights', {
+                  departureDate: startDate.toISOString().slice(0, 10),
+                  returnDate: endDate.toISOString().slice(0, 10),
+                  from,
+                  to,
+                  numofpeople,
+                  numofkids
+                });
+              } else {
+                Alert.alert('Error', 'Please select both From and To destinations.');
+              }}}>
             <Text style={styles.continueButtonText}>Continue</Text>
           </TouchableOpacity>
         </View>
@@ -224,6 +275,27 @@ const TransportBooking = ({navigation}) => {
 export default TransportBooking;
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 40,
+    marginHorizontal: 20, // Optional: add margin to the sides
+  },
+  backButton: {
+    marginRight: 20, // Adjust the spacing between the back button and the header text
+    padding: 10,
+    backgroundColor: 'transparent', // Adjust as needed
+  },
+  backButtonText: {
+    fontSize: 16,
+    color: '#089083', // Adjust the color as needed
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    flex: 1, // Takes up the remaining space in the row
+    textAlign: 'center', // Center the text within its space
+  },
   swapButton: {
     position: 'absolute',
     top: 47,
@@ -256,7 +328,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   passengerContainer: {
-    marginTop: 20,
+    marginTop: 10,
     alignItems: 'flex-start',  // Aligns text to the left
     width: 350,  // Same width as the date pickers
   },
@@ -302,7 +374,7 @@ const styles = StyleSheet.create({
 
   classOption: {
     width: 160,
-    height: 60,
+    height: 40,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -339,8 +411,7 @@ const styles = StyleSheet.create({
   },
   transportOption: {
     width: 80,
-    height: 80,
-    borderRadius: 10,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
     // Only marginLeft for images after the first one

@@ -1,7 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import * as Animatable from 'react-native-animatable';
 
 import HomeScreen from '../../../pages/HomeScreen';
 import BookingScreen from '../../../pages/Booking';
@@ -22,7 +21,7 @@ const ButtonTabs = ({ state, descriptors, navigation }) => {
   ];
 
   return (
-    <View style={{ flexDirection: 'row', height: 60 }}>
+    <View style={{ flexDirection: 'row', height: 60, backgroundColor: 'white', shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.1, shadowRadius: 5 }}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -66,10 +65,10 @@ const ButtonTabs = ({ state, descriptors, navigation }) => {
             onLongPress={onLongPress}
             style={styles.tab}
           >
-            {icon && <Image source={icon} style={[styles.icon, { tintColor: isFocused ? '#673ab7' : '#222' }]} />}
-            <Text style={{ color: isFocused ? '#673ab7' : '#222' }}>
-              {label}
-            </Text>
+            <View style={[styles.iconContainer, isFocused && styles.focusedTab]}>
+              {icon && <Image source={icon} style={[styles.icon, { tintColor: isFocused ? '#000' : '#AAA' }]} />}
+              {isFocused && <Text style={styles.focusedText}>{label}</Text>}
+            </View>
           </TouchableOpacity>
         );
       })}
@@ -82,11 +81,26 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 10,
+  },
+  iconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
   icon: {
     width: 24,
     height: 24,
-    marginBottom: 4,
+  },
+  focusedTab: {
+    backgroundColor: '#FFDDA2',
+    borderRadius: 12,
+  },
+  focusedText: {
+    fontSize: 14,
+    color: '#000',
+    marginLeft: 8,
   },
 });
 

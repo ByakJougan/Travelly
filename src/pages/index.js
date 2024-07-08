@@ -12,6 +12,9 @@ import BoardingPass from './BoardingPass'
 import FlightsFilter from './FlightsFilter'
 import SelectSeats from './SelectSeats'
 import TransportFlights from './TransportFlights'
+import ChangeInfo from './ChangeInfo'
+import LoginScreen from './LoginScreen'
+import FilterScreen from './FilterScreen'
 
 export {
     SplashScreen,
@@ -27,5 +30,8 @@ export {
     BoardingPass,
     FlightsFilter,
     SelectSeats,
-    TransportFlights
+    TransportFlights,
+    ChangeInfo,
+    LoginScreen,
+    FilterScreen
 }

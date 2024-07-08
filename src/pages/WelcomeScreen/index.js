@@ -21,7 +21,7 @@ const WelcomeScreen = ({navigation}) => {
         <TouchableOpacity activeOpacity={0.7} style={{backgroundColor: 'white', 
         alignItems: 'center', paddingHorizontal: 30, paddingVertical: 15, 
         borderRadius: 30, marginHorizontal: 60, marginTop: 10}} onPress={() => 
-        navigation.navigate('MainApp')}>
+        navigation.navigate('LoginScreen')}>
             <Text style={{color: '#FEA36B', fontSize: 18, fontWeight: 'bold'}}>
               Login
             </Text>
