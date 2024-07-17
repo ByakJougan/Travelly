@@ -3,9 +3,7 @@ import { View, Text, ImageBackground, TouchableOpacity, Image, StyleSheet, Alert
 import DropDownPicker from 'react-native-dropdown-picker';
 import { HomeBackground, SwapButton, NumOfAnimals, NumOfLuggages, NumOfKids, NumOfPeople, Line, NumOfAnimalsAfterText, 
   NumOfKidsAfterText, NumOfLuggagesAfterText, NumOfPeopleAfterText, Plane, Ship, Train, Bus, BackButton } from '../../assets/images';
-import DatePicker from 'react-native-datepicker';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const TransportBooking = ({navigation}) => {
   const [openFrom, setOpenFrom] = useState(false);
@@ -210,22 +208,22 @@ const TransportBooking = ({navigation}) => {
             </ScrollView>
           </View>
           <View>
-  <Text style={styles.classTitle}>Class</Text>
-  <View style={styles.classOptionsContainer}>
-    <TouchableOpacity
-      style={[styles.classOption, selectedClass === 'economy' && styles.selectedClassOption]}
-      onPress={() => setSelectedClass('economy')}
-    >
-      <Text style={[styles.classOptionText, selectedClass === 'economy' && styles.selectedClassText]}>Economy</Text>
-    </TouchableOpacity>
-    <TouchableOpacity
-      style={[styles.classOption, selectedClass === 'business' && styles.selectedClassOption]}
-      onPress={() => setSelectedClass('business')}
-    >
-      <Text style={[styles.classOptionText, selectedClass === 'business' && styles.selectedClassText]}>Business</Text>
-    </TouchableOpacity>
-  </View>
-</View>
+            <Text style={styles.classTitle}>Class</Text>
+            <View style={styles.classOptionsContainer}>
+              <TouchableOpacity
+                style={[styles.classOption, selectedClass === 'economy' && styles.selectedClassOption]}
+                onPress={() => setSelectedClass('economy')}
+              >
+                <Text style={[styles.classOptionText, selectedClass === 'economy' && styles.selectedClassText]}>Economy</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[styles.classOption, selectedClass === 'business' && styles.selectedClassOption]}
+                onPress={() => setSelectedClass('business')}
+              >
+                <Text style={[styles.classOptionText, selectedClass === 'business' && styles.selectedClassText]}>Business</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
           <View styles={styles.transportContainer}>
             <Text style={styles.transportTitle}>Transportation</Text>
             <View style={styles.transportOptionsContainer}>
@@ -279,22 +277,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 40,
-    marginHorizontal: 20, // Optional: add margin to the sides
+    marginHorizontal: 20,
   },
   backButton: {
-    marginRight: 20, // Adjust the spacing between the back button and the header text
+    marginRight: 20,
     padding: 10,
-    backgroundColor: 'transparent', // Adjust as needed
+    backgroundColor: 'transparent',
   },
   backButtonText: {
     fontSize: 16,
-    color: '#089083', // Adjust the color as needed
+    color: '#089083',
   },
   headerText: {
     fontSize: 20,
     fontWeight: 'bold',
-    flex: 1, // Takes up the remaining space in the row
-    textAlign: 'center', // Center the text within its space
+    flex: 1,
+    textAlign: 'center',
   },
   swapButton: {
     position: 'absolute',
@@ -306,14 +304,14 @@ const styles = StyleSheet.create({
   },
   dropdown: {
     backgroundColor: 'white',
-    width: 350,  // Adjusted to match width of date pickers
+    width: 350,
     height: 60,
     borderRadius: 10,
     borderColor: 'white',
   },
   dropdownContainer: {
     backgroundColor: 'white',
-    width: 350,  // Adjusted to match width of date pickers
+    width: 350,
     maxHeight: 200,
     borderRadius: 10,
     borderColor: 'white',
@@ -329,8 +327,8 @@ const styles = StyleSheet.create({
   },
   passengerContainer: {
     marginTop: 10,
-    alignItems: 'flex-start',  // Aligns text to the left
-    width: 350,  // Same width as the date pickers
+    alignItems: 'flex-start',
+    width: 350,
   },
   passengerText: {
     fontSize: 16,
@@ -344,20 +342,20 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   image: {
-    width: 36, // Adjust size as needed
-    height: 36, // Adjust size as needed
+    width: 36, 
+    height: 36,
   },
   textInput: {
     color: '#01635D',
     marginLeft: 5,
-    flex: 1, // Allow the TextInput to take remaining space
+    flex: 1,
     fontSize: 20,
     fontWeight: 'bold',
   },
   classContainer: {
   marginTop: 20,
-  alignItems: 'flex-start',  // Aligns text to the left
-  width: 350,  // Same width as the date pickers and class section
+  alignItems: 'flex-start',
+  width: 350,
   },
 
   classTitle: {
@@ -369,7 +367,7 @@ const styles = StyleSheet.create({
   classOptionsContainer: {
     flexDirection: 'row',
     width: 350,
-    marginTop: 10,  // Added marginTop for spacing between title and options
+    marginTop: 10,
   },
 
   classOption: {
@@ -378,7 +376,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 10,  // Added marginRight to separate options
+    marginRight: 10,
   },
 
   selectedClassOption: {
@@ -395,8 +393,8 @@ const styles = StyleSheet.create({
   }, 
   transportContainer: {
     marginTop: 20,
-    alignItems: 'flex-start',  // Aligns text to the left
-    width: 350,  // Same width as the date pickers and class section
+    alignItems: 'flex-start',
+    width: 350,
     flex: 1,
   },
   transportTitle: {
@@ -407,15 +405,13 @@ const styles = StyleSheet.create({
   transportOptionsContainer: {
     flexDirection: 'row',
     width: 350,
-    marginTop: 10,  // Added marginTop for spacing between title and options
+    marginTop: 10,
   },
   transportOption: {
     width: 80,
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    // Only marginLeft for images after the first one
-    
   },
   transportImage: {
     width: 60,

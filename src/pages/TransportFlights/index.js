@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity, ScrollView } from 'react-native';
-import { HomeBackground, BackButton, FilterButton } from '../../assets/images'; // Import the PNG images
+import { HomeBackground, BackButton, FilterButton } from '../../assets/images';
 import { format, addDays } from 'date-fns';
-import TicketCard from '../../components/molecules/TicketCard'; // Import the TicketCard component
-import {TicketData} from '../../assets/data'; // Import your TicketData
+import TicketCard from '../../components/molecules/TicketCard';
+import {TicketData} from '../../assets/data';
 
 const TransportFlights = ({ navigation, route }) => {
   const { departureDate, returnDate, from, to, numofpeople, numofkids } = route.params;
@@ -28,7 +28,7 @@ const TransportFlights = ({ navigation, route }) => {
       && ticketReturnDate <= returnDateObj;
   });
 
-  const numberOfFlights = tickets.length; // Calculate number of available flights
+  const numberOfFlights = tickets.length;
 
   const getNextSevenDays = (date) => {
     const days = [];

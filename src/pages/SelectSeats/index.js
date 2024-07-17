@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, ImageBackground, Image } from 'react-native';
-import { BackButton, HomeBackground } from '../../assets/images';  // Adjust the paths accordingly
-import { TicketData } from '../../assets/data'; // Import your TicketData
+import { BackButton, HomeBackground } from '../../assets/images';
+import { TicketData } from '../../assets/data';
 
 const SelectSeats = ({ navigation, route }) => {
   const { ticket, numofpeople, numofkids } = route.params;

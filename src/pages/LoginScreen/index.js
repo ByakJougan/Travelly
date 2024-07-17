@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import { HomeBackground, facebook, google, apple } from '../../assets/images';
-import { useUser } from '../UserContext'; // Adjust the path accordingly
-import { PersonalInformation } from '../../assets/data'; // Adjust the path accordingly
+import { useUser } from '../UserContext';
+import { PersonalInformation } from '../../assets/data';
 
 const LoginScreen = ({ navigation }) => {
   const { setUser } = useUser();

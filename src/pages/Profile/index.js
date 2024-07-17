@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { useUser } from '../UserContext'; // Adjust the path accordingly
-import { UserIcon, WalletIcon, HeartIcon, HistoryIcon, SettingsIcon, EndSessionIcon } from '../../assets/images'; // Adjust the path accordingly
+import { useUser } from '../UserContext';
+import { UserIcon, WalletIcon, HeartIcon, HistoryIcon, SettingsIcon, EndSessionIcon } from '../../assets/images';
 
 const Profile = ({ navigation }) => {
   const { user, setUser } = useUser();
@@ -18,7 +18,7 @@ const Profile = ({ navigation }) => {
         {
           text: 'OK',
           onPress: () => {
-            setUser(null); // Clear the user state
+            setUser(null);
             navigation.navigate('LoginScreen');
           },
         },

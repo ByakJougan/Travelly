@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     padding: 10,
-    paddingTop: 20, // Add padding to account for the ticket image
+    paddingTop: 20,
   },
   topSection: {
     flexDirection: 'row',
